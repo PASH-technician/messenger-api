@@ -6,7 +6,6 @@ import com.example.messengerapi.api.exceptions.UsernameUnavailableException
 import com.example.messengerapi.api.models.User
 import com.example.messengerapi.api.repositories.UserRepository
 import org.springframework.stereotype.Service
-import kotlin.jvm.Throws
 
 @Service
 class UserServiceImpl(val repository: UserRepository): UserService {
@@ -27,8 +26,8 @@ class UserServiceImpl(val repository: UserRepository): UserService {
     }
 
     @Throws(UserStatusEmptyException::class)
-    fun updateUserStatus(currentUser: User, updateDetails: User): User {
-        if (!updateDetails.status.isEmpty()) {
+    override fun updateUserStatus(currentUser: User, updateDetails: User): User {
+        if (updateDetails.status.isNotEmpty()) {
             currentUser.status = updateDetails.status
             repository.save(currentUser)
             return currentUser
@@ -52,7 +51,7 @@ class UserServiceImpl(val repository: UserRepository): UserService {
     }
 
     @Throws(InvalidUserIdException::class)
-    override fun retrieveUserData(id: Long): User? {
+    override fun retrieveUserData(id: Long): User {
         val userOptional = repository.findById(id)
         if (userOptional.isPresent){
             val user = userOptional.get()
