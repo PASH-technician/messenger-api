@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="messenger-api.messenger-api.main" target="17" />
-      <module name="messenger-api.messenger-api.test" target="17" />
+      <module name="messenger-api.messenger-api.main~1" target="17" />
+      <module name="messenger-api.messenger-api.test~1" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
