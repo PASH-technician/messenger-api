@@ -1,5 +1,7 @@
 package com.example.messengerapi.api.components
 
+import com.example.messengerapi.api.constants.ErrorResponse
+import com.example.messengerapi.api.constants.ResponseConstants
 import com.example.messengerapi.api.exceptions.InvalidUserIdException
 import com.example.messengerapi.api.exceptions.UserStatusEmptyException
 import com.example.messengerapi.api.exceptions.UsernameUnavailableException

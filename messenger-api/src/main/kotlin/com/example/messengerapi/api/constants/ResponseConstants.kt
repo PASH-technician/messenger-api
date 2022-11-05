@@ -1,4 +1,4 @@
-package com.example.messengerapi.api.components
+package com.example.messengerapi.api.constants
 
 enum class ResponseConstants(val value: String) {
     SUCCESS("success"),
