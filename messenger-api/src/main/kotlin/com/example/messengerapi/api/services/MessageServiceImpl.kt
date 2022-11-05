@@ -42,7 +42,7 @@ class MessageServiceImpl(
 
     private fun getOrCreateConversation(sender: User, recipient: User): Conversation {
         return if (conversationService.conversationExists(sender, recipient)) {
-            conversationService.getConversation(sender, recipient)
+            conversationService.getConversation(sender, recipient) as Conversation
         } else {
             conversationService.createConversation(sender, recipient)
         }

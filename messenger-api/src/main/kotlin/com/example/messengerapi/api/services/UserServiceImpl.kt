@@ -59,7 +59,7 @@ class UserServiceImpl(val repository: UserRepository): UserService {
             obscurePassword(user)
             return user
         }
-        throw InvalidUserIdException()
+        throw InvalidUserIdException("A user with an id of '$id' does not exist.")
     }
 
     override fun usernameExists(username: String): Boolean {
