@@ -8,6 +8,7 @@ import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.EntityListeners
 import javax.persistence.Id
+import javax.persistence.OneToMany
 import javax.persistence.Table
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
@@ -21,7 +22,7 @@ class User(
     var id: Long = 0,
     @Column(unique = true)
     @Size(min = 2)
-    var username: String,
+    var username: String = "",
     @Size(min = 8, max = 15)
     @Column(unique = true)
     var phoneNumber: String  = "",
@@ -32,4 +33,10 @@ class User(
     var accountStatus: String = "activated",
     @DateTimeFormat
     var createAt: Date = Date.from(Instant.now())
-)
+) {
+    @OneToMany(mappedBy = "sender", targetEntity = Message::class)
+    private var sentMessages: Collection<Message>? = null
+
+    @OneToMany(mappedBy = "recipient", targetEntity = Message::class)
+    private var receivedMessages: Collection<Message>? = null
+}
